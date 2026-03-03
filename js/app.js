@@ -380,9 +380,10 @@
       btn.addEventListener("click", () => applyPreset(btn.dataset.preset));
     });
 
-    // Panel accordion
-    document.querySelectorAll(".panel-header").forEach(header => {
-      header.addEventListener("click", () => {
+    // Panel accordion (only toggle on elements with data-accordion-toggle)
+    document.querySelectorAll("[data-accordion-toggle]").forEach(el => {
+      el.addEventListener("click", () => {
+        const header = el.closest(".panel-header");
         const expanded = header.getAttribute("aria-expanded") === "true";
         header.setAttribute("aria-expanded", !expanded);
       });
