@@ -1,4 +1,4 @@
-// data.js — All config content from ds1/claude-code-config embedded as JS objects
+// data.js — All config content from ds1/boilerplate.md embedded as JS objects
 // Last synced: 2026-03-03
 
 const CONFIG_DATA = {
@@ -451,7 +451,7 @@ Review the project backlog and upcoming work.
 
 ---
 
-*By [@ds1](https://github.com/ds1) \u2014 [claude-code-config](https://github.com/ds1/claude-code-config)*`
+*By [@ds1](https://github.com/ds1) \u2014 [boilerplate.md](https://github.com/ds1/boilerplate.md)*`
     },
     {
       id: "cmd-cleanup",
@@ -487,7 +487,7 @@ Run lint, format, and remove unused imports across changed files.
 
 ---
 
-*By [@ds1](https://github.com/ds1) \u2014 [claude-code-config](https://github.com/ds1/claude-code-config)*`
+*By [@ds1](https://github.com/ds1) \u2014 [boilerplate.md](https://github.com/ds1/boilerplate.md)*`
     },
     {
       id: "cmd-deploy",
@@ -524,7 +524,7 @@ Deploy the current project to production.
 
 ---
 
-*By [@ds1](https://github.com/ds1) \u2014 [claude-code-config](https://github.com/ds1/claude-code-config)*`
+*By [@ds1](https://github.com/ds1) \u2014 [boilerplate.md](https://github.com/ds1/boilerplate.md)*`
     },
     {
       id: "cmd-dev",
@@ -565,7 +565,7 @@ Keep the chat unblocked. Never run the dev server in the foreground of this sess
 
 ---
 
-*By [@ds1](https://github.com/ds1) \u2014 [claude-code-config](https://github.com/ds1/claude-code-config)*`
+*By [@ds1](https://github.com/ds1) \u2014 [boilerplate.md](https://github.com/ds1/boilerplate.md)*`
     },
     {
       id: "cmd-docs",
@@ -602,7 +602,7 @@ Manually trigger documentation updates to match current code state.
 
 ---
 
-*By [@ds1](https://github.com/ds1) \u2014 [claude-code-config](https://github.com/ds1/claude-code-config)*`
+*By [@ds1](https://github.com/ds1) \u2014 [boilerplate.md](https://github.com/ds1/boilerplate.md)*`
     },
     {
       id: "cmd-init",
@@ -650,7 +650,7 @@ Scaffold the standard file structure for a new project.
 
 ---
 
-*By [@ds1](https://github.com/ds1) \u2014 [claude-code-config](https://github.com/ds1/claude-code-config)*`
+*By [@ds1](https://github.com/ds1) \u2014 [boilerplate.md](https://github.com/ds1/boilerplate.md)*`
     },
     {
       id: "cmd-log",
@@ -673,7 +673,7 @@ Add an entry to \`CHANGELOG.md\` documenting completed work.
 
 ---
 
-*By [@ds1](https://github.com/ds1) \u2014 [claude-code-config](https://github.com/ds1/claude-code-config)*`
+*By [@ds1](https://github.com/ds1) \u2014 [boilerplate.md](https://github.com/ds1/boilerplate.md)*`
     },
     {
       id: "cmd-plans",
@@ -695,7 +695,7 @@ List and open saved plans from Plan Mode.
 
 ---
 
-*By [@ds1](https://github.com/ds1) \u2014 [claude-code-config](https://github.com/ds1/claude-code-config)*`
+*By [@ds1](https://github.com/ds1) \u2014 [boilerplate.md](https://github.com/ds1/boilerplate.md)*`
     },
     {
       id: "cmd-pr",
@@ -717,7 +717,7 @@ Create a pull request with a standardized format.
 
 ---
 
-*By [@ds1](https://github.com/ds1) \u2014 [claude-code-config](https://github.com/ds1/claude-code-config)*`
+*By [@ds1](https://github.com/ds1) \u2014 [boilerplate.md](https://github.com/ds1/boilerplate.md)*`
     },
     {
       id: "cmd-remember",
@@ -739,7 +739,7 @@ Save a global preference or behavior based on the user's natural language descri
 
 ---
 
-*By [@ds1](https://github.com/ds1) \u2014 [claude-code-config](https://github.com/ds1/claude-code-config)*`
+*By [@ds1](https://github.com/ds1) \u2014 [boilerplate.md](https://github.com/ds1/boilerplate.md)*`
     },
     {
       id: "cmd-status",
@@ -758,7 +758,7 @@ Read the current project state and summarize it concisely.
 
 ---
 
-*By [@ds1](https://github.com/ds1) \u2014 [claude-code-config](https://github.com/ds1/claude-code-config)*`
+*By [@ds1](https://github.com/ds1) \u2014 [boilerplate.md](https://github.com/ds1/boilerplate.md)*`
     },
     {
       id: "cmd-update-status",
@@ -779,7 +779,7 @@ Update \`STATUS.md\` to reflect current project state.
 
 ---
 
-*By [@ds1](https://github.com/ds1) \u2014 [claude-code-config](https://github.com/ds1/claude-code-config)*`
+*By [@ds1](https://github.com/ds1) \u2014 [boilerplate.md](https://github.com/ds1/boilerplate.md)*`
     },
     {
       id: "cmd-probe-start",
