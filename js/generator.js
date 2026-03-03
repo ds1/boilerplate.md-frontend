@@ -220,6 +220,9 @@ $ErrorActionPreference = "Stop"
 $ClaudeDir = Join-Path $env:USERPROFILE ".claude"
 $CommandsDir = Join-Path $ClaudeDir "commands"
 
+# BOM-free UTF-8 writer (PowerShell 5.1 adds BOM with -Encoding UTF8)
+$Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+
 Write-Host "Installing Claude Code configuration..."
 Write-Host ""
 
@@ -241,7 +244,7 @@ New-Item -ItemType Directory -Force -Path $ClaudeDir | Out-Null
 $claudeMd = @'
 ${escaped}
 '@
-Set-Content -Path (Join-Path $ClaudeDir "CLAUDE.md") -Value $claudeMd -Encoding UTF8
+[System.IO.File]::WriteAllText((Join-Path $ClaudeDir "CLAUDE.md"), ($claudeMd + [char]10), $Utf8NoBom)
 Write-Host "  Created CLAUDE.md (${sections.length} sections)"
 `;
     }
@@ -255,7 +258,7 @@ Write-Host "  Created CLAUDE.md (${sections.length} sections)"
 $settingsJson = @'
 ${escaped}
 '@
-Set-Content -Path (Join-Path $ClaudeDir "settings.json") -Value $settingsJson -Encoding UTF8
+[System.IO.File]::WriteAllText((Join-Path $ClaudeDir "settings.json"), ($settingsJson + [char]10), $Utf8NoBom)
 Write-Host "  Created settings.json (${settings.length} groups)"
 `;
     }
@@ -270,7 +273,7 @@ Write-Host "  Created settings.json (${settings.length} groups)"
         script += `${varName} = @'
 ${escaped}
 '@
-Set-Content -Path (Join-Path $CommandsDir "${cmd.filename}") -Value ${varName} -Encoding UTF8
+[System.IO.File]::WriteAllText((Join-Path $CommandsDir "${cmd.filename}"), (${varName} + [char]10), $Utf8NoBom)
 `;
       }
       script += `Write-Host "  Created ${commands.length} slash commands"\n`;
