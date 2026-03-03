@@ -99,11 +99,6 @@ button {
   letter-spacing: -0.02em;
 }
 
-.logo-icon {
-  color: var(--accent);
-  font-family: var(--font-mono);
-}
-
 .tagline {
   color: var(--text-secondary);
   font-size: 0.9rem;
