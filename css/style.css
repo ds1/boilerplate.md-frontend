@@ -285,8 +285,9 @@ button {
 .select-all-btn,
 .select-none-btn {
   font-size: 0.75rem;
-  color: var(--text-muted);
-  padding: 4px 8px;
+  color: var(--text-secondary);
+  padding: 4px 10px;
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   transition: all var(--transition);
 }
@@ -294,6 +295,7 @@ button {
 .select-all-btn:hover,
 .select-none-btn:hover {
   color: var(--accent);
+  border-color: var(--accent);
   background: var(--accent-subtle);
 }
 
