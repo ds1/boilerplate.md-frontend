@@ -53,6 +53,7 @@
           <svg class="panel-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 8 10 12 14 8"/></svg>
         </button>
         <div class="panel-body" id="panel-claudemd-body">
+          <p class="panel-help">These sections are written to <code>~/.claude/CLAUDE.md</code> and loaded into every Claude Code conversation. They shape how Claude communicates, handles errors, manages files, and follows your preferences. Mix and match to build the behavior profile you want.</p>
           <div class="panel-actions">
             <button class="select-all-btn" data-group="claudeMd">Select all</button>
             <button class="select-none-btn" data-group="claudeMd">Select none</button>
@@ -72,6 +73,7 @@
           <svg class="panel-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 8 10 12 14 8"/></svg>
         </button>
         <div class="panel-body" id="panel-settings-body">
+          <p class="panel-help">These configure <code>~/.claude/settings.json</code>, which controls tool permissions, safety rules, and hooks. Permissions determine which CLI commands Claude can run without asking. The deny list blocks dangerous operations regardless of other settings.</p>
           <div class="panel-actions">
             <button class="select-all-btn" data-group="settings">Select all</button>
             <button class="select-none-btn" data-group="settings">Select none</button>
@@ -91,16 +93,19 @@
           <svg class="panel-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 8 10 12 14 8"/></svg>
         </button>
         <div class="panel-body" id="panel-commands-body">
+          <p class="panel-help">Slash commands are markdown files saved to <code>~/.claude/commands/</code>. Type <code>/command-name</code> in Claude Code to run them. They act as reusable prompts that automate common workflows.</p>
           <div class="panel-actions">
             <button class="select-all-btn" data-group="commands">Select all</button>
             <button class="select-none-btn" data-group="commands">Select none</button>
           </div>
           <div class="subcategory" id="commands-project-management">
             <h3 class="subcategory-title">Project Management</h3>
+            <p class="subcategory-help">Commands for tracking project state, generating changelogs, creating pull requests, deploying, and keeping documentation in sync. They work together with the Project State Management section in CLAUDE.md to maintain a consistent workflow across all your projects.</p>
             <div class="toggle-list" id="commands-pm-toggles"></div>
           </div>
           <div class="subcategory" id="commands-socratic-probes">
             <h3 class="subcategory-title">Socratic Probes</h3>
+            <p class="subcategory-help">A document analysis framework that examines proposals, research, or any written argument through six critical lenses. Run them individually for targeted analysis, or use <code>/probe-start</code> to launch all six in parallel and get a synthesized evaluation. Adapted from <a href="https://github.com/ds1/socratic-probes" target="_blank" rel="noopener">ds1/socratic-probes</a>.</p>
             <div class="toggle-list" id="commands-probe-toggles"></div>
           </div>
         </div>
