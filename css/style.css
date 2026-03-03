@@ -105,6 +105,13 @@ button {
   margin-top: 4px;
 }
 
+.about {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
 .github-link {
   display: flex;
   align-items: center;
