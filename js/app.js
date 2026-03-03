@@ -246,79 +246,87 @@
   // ── Dependency Warnings ─────────────────────────────────────────────
 
   function updateWarnings() {
-    const container = document.getElementById("warnings");
-    const warnings = [];
+    const claudemdWarnings = [];
+    const settingsWarnings = [];
+    const commandsWarnings = [];
 
-    // Security: Bypass permissions without safety net
+    // Settings: Bypass permissions without safety net
     if (state.settings["settings-bypass"] && !state.claudeMd["safety-net"]) {
-      warnings.push({
+      settingsWarnings.push({
         type: "security",
         text: '<strong>Bypass Permissions</strong> is enabled without the <strong>Safety Net</strong> section in CLAUDE.md. All tool calls will be auto-approved with no guardrails. Enable Safety Net or switch to a safer mode.'
       });
     }
 
-    // Security: Bypass permissions enabled (general caution)
+    // Settings: Bypass permissions enabled (general caution)
     if (state.settings["settings-bypass"] && state.claudeMd["safety-net"]) {
-      warnings.push({
+      settingsWarnings.push({
         type: "security",
         text: '<strong>Bypass Permissions</strong> auto-approves all tool calls. The Safety Net section provides soft guardrails but cannot prevent all destructive actions. Consider whether this tradeoff is right for your workflow.'
       });
     }
 
-    // Security: Bypass permissions without deny list
+    // Settings: Bypass permissions without deny list
     if (state.settings["settings-bypass"] && !state.settings["permissions-deny"]) {
-      warnings.push({
+      settingsWarnings.push({
         type: "security",
         text: '<strong>Bypass Permissions</strong> is enabled without the <strong>Denied Commands</strong> safety list. There is nothing blocking <code>rm -rf</code>, <code>git push --force</code>, or other destructive commands.'
       });
     }
 
-    // Security: Thin deny list warning
+    // Settings: Thin deny list warning
     if (state.settings["permissions-deny"] && state.settings["settings-bypass"]) {
-      warnings.push({
+      settingsWarnings.push({
         type: "caution",
         text: 'The <strong>Denied Commands</strong> list only blocks 4 patterns. Destructive variants like <code>rm -r</code> (without <code>-f</code>) or <code>find -delete</code> are not covered. Consider adding deny patterns relevant to your stack.'
       });
     }
 
-    // Security: Broad wildcards on sensitive tools
+    // Settings: Broad wildcards on sensitive tools
     const hasBroadWildcards = state.settings["permissions-core-tools"] || state.settings["permissions-extended"];
     if (hasBroadWildcards && state.settings["settings-bypass"]) {
-      warnings.push({
+      settingsWarnings.push({
         type: "caution",
         text: 'Broad wildcards (<code>curl:*</code>, <code>python:*</code>, <code>node:*</code>) combined with <strong>Bypass Permissions</strong> could be exploited via prompt injection from malicious files. If working with untrusted repos, consider narrowing these wildcards.'
       });
     }
 
-    // Dependency: PreCompact hook without context preservation
+    // Settings: PreCompact hook without context preservation
     if (state.settings["settings-precompact-hook"] && !state.claudeMd["context-preservation"]) {
-      warnings.push({
+      settingsWarnings.push({
         type: "dependency",
         text: '<strong>PreCompact Hook</strong> is enabled but the <strong>Context Preservation</strong> section is not selected. The hook will fire but Claude won\'t know what to do with it.'
       });
     }
 
-    // Dependency: Project state commands without project state management section
+    // Commands: Project state commands without project state management section
     const projectStateCmds = ["cmd-status", "cmd-update-status", "cmd-log", "cmd-plans", "cmd-backlog"];
     const hasProjectStateCmd = projectStateCmds.some(id => state.commands[id]);
     if (hasProjectStateCmd && !state.claudeMd["project-state"]) {
-      warnings.push({
+      commandsWarnings.push({
         type: "dependency",
-        text: 'You have <strong>project management commands</strong> selected but not the <strong>Project State Management</strong> section. The commands reference STATUS.md and _planning/ which are defined in that section.'
+        text: 'You have <strong>project management commands</strong> selected but not the <strong>Project State Management</strong> section in CLAUDE.md. The commands reference STATUS.md and _planning/ which are defined in that section.'
       });
     }
 
-    // Dependency: Documentation auto-update without the commands
+    // CLAUDE.md: Documentation auto-update without the commands
     if (state.claudeMd["documentation"] && !state.commands["cmd-docs"]) {
-      warnings.push({
+      claudemdWarnings.push({
         type: "dependency",
         text: 'The <strong>Documentation</strong> section references <code>/docs</code> command which is not selected.'
       });
     }
 
+    renderWarningsInto("claudemd-warnings", claudemdWarnings);
+    renderWarningsInto("settings-warnings", settingsWarnings);
+    renderWarningsInto("commands-warnings", commandsWarnings);
+  }
+
+  function renderWarningsInto(containerId, warnings) {
+    const container = document.getElementById(containerId);
     container.innerHTML = warnings.map(w => `
       <div class="warning-item warning-${w.type || "dependency"}">
-        <span class="warning-icon">${w.type === "security" ? "\u26d4" : w.type === "caution" ? "\u26a0" : "\u26a0"}</span>
+        <span class="warning-icon">${w.type === "security" ? "\u26d4" : "\u26a0"}</span>
         <span class="warning-text">${w.text}</span>
       </div>
     `).join("");

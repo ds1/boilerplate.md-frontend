@@ -481,8 +481,12 @@ button {
 }
 
 /* ── Warnings ──────────────────────────────────────────────────────── */
-.warnings-container {
-  margin: 16px 0;
+.panel-warnings:empty {
+  display: none;
+}
+
+.panel-warnings {
+  margin-top: 12px;
 }
 
 .warning-item {

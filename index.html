@@ -66,6 +66,7 @@
         <div class="panel-body" id="panel-claudemd-body">
           <p class="panel-help">These sections are written to <code>~/.claude/CLAUDE.md</code> and loaded into every Claude Code conversation. They shape how Claude communicates, handles errors, manages files, and follows your preferences. Mix and match to build the behavior profile you want.</p>
           <div class="toggle-list" id="claudemd-toggles"></div>
+          <div class="panel-warnings" id="claudemd-warnings"></div>
         </div>
       </section>
 
@@ -88,6 +89,7 @@
         <div class="panel-body" id="panel-settings-body">
           <p class="panel-help">These configure <code>~/.claude/settings.json</code>, which controls tool permissions, safety rules, and hooks. Permissions determine which CLI commands Claude can run without asking. The deny list blocks dangerous operations regardless of other settings.</p>
           <div class="toggle-list" id="settings-toggles"></div>
+          <div class="panel-warnings" id="settings-warnings"></div>
         </div>
       </section>
 
@@ -119,12 +121,10 @@
             <p class="subcategory-help">A document analysis framework that examines proposals, research, or any written argument through six critical lenses. Run them individually for targeted analysis, or use <code>/probe-start</code> to launch all six in parallel and get a synthesized evaluation. Adapted from <a href="https://github.com/ds1/socratic-probes" target="_blank" rel="noopener">ds1/socratic-probes</a>.</p>
             <div class="toggle-list" id="commands-probe-toggles"></div>
           </div>
+          <div class="panel-warnings" id="commands-warnings"></div>
         </div>
       </section>
     </div>
-
-    <!-- Warnings -->
-    <div class="warnings-container" id="warnings"></div>
 
     <!-- Output Panel -->
     <section class="output-panel" id="output-panel">
