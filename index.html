@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>boilerplate.md - Claude Code Config Builder</title>
+  <meta name="description" content="Interactively pick components from ds1/claude-code-config and get a custom install script or zip.">
+  <meta property="og:title" content="boilerplate.md - Claude Code Config Builder">
+  <meta property="og:description" content="Cherry-pick Claude Code configuration components and get a ready-to-run installer.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://boilerplate.md">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <h1 class="logo"><span class="logo-icon">&gt;_</span> boilerplate.md</h1>
+        <p class="tagline">Build your Claude Code config. Pick what you need, skip what you don't.</p>
+      </div>
+      <a href="https://github.com/ds1/claude-code-config" class="github-link" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        <span>Source</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Quick Actions / Presets -->
+    <section class="presets-bar">
+      <div class="presets-label">Quick start:</div>
+      <div class="presets-buttons">
+        <button class="preset-btn" data-preset="full" title="Everything. All sections, settings, and commands.">
+          <span class="preset-icon">\u2b50</span> Full
+        </button>
+        <button class="preset-btn active" data-preset="recommended" title="Core sections, essential settings, project management commands.">
+          <span class="preset-icon">\u2705</span> Recommended
+        </button>
+        <button class="preset-btn" data-preset="minimal" title="Core CLAUDE.md sections and basic settings only.">
+          <span class="preset-icon">\ud83d\udce6</span> Minimal
+        </button>
+        <button class="preset-btn" data-preset="commandsOnly" title="Just the slash commands. No CLAUDE.md or settings changes.">
+          <span class="preset-icon">\u26a1</span> Commands Only
+        </button>
+      </div>
+    </section>
+
+    <!-- Config Panels -->
+    <div class="panels">
+      <!-- CLAUDE.md Panel -->
+      <section class="panel" id="panel-claudemd">
+        <button class="panel-header" aria-expanded="true" aria-controls="panel-claudemd-body">
+          <div class="panel-title-group">
+            <h2 class="panel-title">CLAUDE.md</h2>
+            <span class="panel-count" id="claudemd-count">0/13</span>
+          </div>
+          <span class="panel-desc">Global instructions for Claude Code behavior</span>
+          <svg class="panel-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 8 10 12 14 8"/></svg>
+        </button>
+        <div class="panel-body" id="panel-claudemd-body">
+          <div class="panel-actions">
+            <button class="select-all-btn" data-group="claudeMd">Select all</button>
+            <button class="select-none-btn" data-group="claudeMd">Select none</button>
+          </div>
+          <div class="toggle-list" id="claudemd-toggles"></div>
+        </div>
+      </section>
+
+      <!-- Settings Panel -->
+      <section class="panel" id="panel-settings">
+        <button class="panel-header" aria-expanded="true" aria-controls="panel-settings-body">
+          <div class="panel-title-group">
+            <h2 class="panel-title">settings.json</h2>
+            <span class="panel-count" id="settings-count">0/11</span>
+          </div>
+          <span class="panel-desc">Permissions, hooks, and mode settings</span>
+          <svg class="panel-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 8 10 12 14 8"/></svg>
+        </button>
+        <div class="panel-body" id="panel-settings-body">
+          <div class="panel-actions">
+            <button class="select-all-btn" data-group="settings">Select all</button>
+            <button class="select-none-btn" data-group="settings">Select none</button>
+          </div>
+          <div class="toggle-list" id="settings-toggles"></div>
+        </div>
+      </section>
+
+      <!-- Commands Panel -->
+      <section class="panel" id="panel-commands">
+        <button class="panel-header" aria-expanded="true" aria-controls="panel-commands-body">
+          <div class="panel-title-group">
+            <h2 class="panel-title">Slash Commands</h2>
+            <span class="panel-count" id="commands-count">0/20</span>
+          </div>
+          <span class="panel-desc">Project management and Socratic analysis commands</span>
+          <svg class="panel-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 8 10 12 14 8"/></svg>
+        </button>
+        <div class="panel-body" id="panel-commands-body">
+          <div class="panel-actions">
+            <button class="select-all-btn" data-group="commands">Select all</button>
+            <button class="select-none-btn" data-group="commands">Select none</button>
+          </div>
+          <div class="subcategory" id="commands-project-management">
+            <h3 class="subcategory-title">Project Management</h3>
+            <div class="toggle-list" id="commands-pm-toggles"></div>
+          </div>
+          <div class="subcategory" id="commands-socratic-probes">
+            <h3 class="subcategory-title">Socratic Probes</h3>
+            <div class="toggle-list" id="commands-probe-toggles"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Warnings -->
+    <div class="warnings-container" id="warnings"></div>
+
+    <!-- Output Panel -->
+    <section class="output-panel" id="output-panel">
+      <div class="output-header">
+        <h2 class="output-title">Install Script</h2>
+        <div class="output-tabs">
+          <button class="output-tab active" data-tab="bash">Bash</button>
+          <button class="output-tab" data-tab="powershell">PowerShell</button>
+          <button class="output-tab" data-tab="zip">Zip</button>
+        </div>
+      </div>
+      <div class="output-body">
+        <div class="output-content active" id="output-bash">
+          <div class="code-toolbar">
+            <span class="code-label">bash</span>
+            <button class="copy-btn" data-target="bash" title="Copy to clipboard">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="9" height="9" rx="1"/><path d="M5 11H3.5A1.5 1.5 0 012 9.5v-7A1.5 1.5 0 013.5 1h7A1.5 1.5 0 0112 2.5V5"/></svg>
+              <span class="copy-label">Copy</span>
+            </button>
+          </div>
+          <pre class="code-block"><code id="bash-output"></code></pre>
+        </div>
+        <div class="output-content" id="output-powershell">
+          <div class="code-toolbar">
+            <span class="code-label">powershell</span>
+            <button class="copy-btn" data-target="powershell" title="Copy to clipboard">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="9" height="9" rx="1"/><path d="M5 11H3.5A1.5 1.5 0 012 9.5v-7A1.5 1.5 0 013.5 1h7A1.5 1.5 0 0112 2.5V5"/></svg>
+              <span class="copy-label">Copy</span>
+            </button>
+          </div>
+          <pre class="code-block"><code id="powershell-output"></code></pre>
+        </div>
+        <div class="output-content" id="output-zip">
+          <div class="zip-download">
+            <p class="zip-info">Download a zip file containing all selected configuration files, ready to extract into your home directory.</p>
+            <button class="download-btn" id="download-zip">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3v10m0 0l-3-3m3 3l3-3"/><path d="M3 14v2a1 1 0 001 1h12a1 1 0 001-1v-2"/></svg>
+              Download .zip
+            </button>
+            <p class="zip-hint">Extract to <code>~/.claude/</code> (or <code>%USERPROFILE%\.claude\</code> on Windows)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Share -->
+    <section class="share-bar">
+      <button class="share-btn" id="share-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="3" r="2"/><circle cx="12" cy="13" r="2"/><circle cx="4" cy="8" r="2"/><path d="M6 9l4 3M6 7l4-3"/></svg>
+        Share this config
+      </button>
+      <span class="share-status" id="share-status"></span>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        Built for <a href="https://github.com/ds1/claude-code-config" target="_blank" rel="noopener">ds1/claude-code-config</a>
+        &middot;
+        <a href="https://github.com/ds1/boilerplate.md" target="_blank" rel="noopener">View source</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/data.js"></script>
+  <script src="js/generator.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
