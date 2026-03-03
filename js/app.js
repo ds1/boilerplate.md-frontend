@@ -118,7 +118,19 @@
         for (const s of CONFIG_DATA.settings) state.settings[s.id] = false;
         for (const c of CONFIG_DATA.commands) state.commands[c.id] = true;
         break;
+      case "reset":
+        for (const s of CONFIG_DATA.claudeMd) state.claudeMd[s.id] = false;
+        for (const s of CONFIG_DATA.settings) state.settings[s.id] = false;
+        for (const c of CONFIG_DATA.commands) state.commands[c.id] = false;
+        state._reset = true;
+        updateAllToggles();
+        updateOutput();
+        updateCounts();
+        updateWarnings();
+        updatePresetButtons(preset);
+        return;
     }
+    state._reset = false;
     updateAllToggles();
     updateOutput();
     updateCounts();
@@ -155,6 +167,7 @@
     const checkbox = div.querySelector("input[type=checkbox]");
     checkbox.addEventListener("change", () => {
       state[group][item.id] = checkbox.checked;
+      state._reset = false;
       updateOutput();
       updateCounts();
       updateWarnings();
@@ -291,7 +304,7 @@
 
   function detectActivePreset() {
     // Check each preset to see if current state matches
-    const presets = ["full", "recommended", "minimal", "commandsOnly"];
+    const presets = ["full", "recommended", "minimal", "commandsOnly", "reset"];
     let activePreset = null;
 
     // Save current state
@@ -334,6 +347,11 @@
         for (const s of CONFIG_DATA.settings) state.settings[s.id] = false;
         for (const c of CONFIG_DATA.commands) state.commands[c.id] = true;
         break;
+      case "reset":
+        for (const s of CONFIG_DATA.claudeMd) state.claudeMd[s.id] = false;
+        for (const s of CONFIG_DATA.settings) state.settings[s.id] = false;
+        for (const c of CONFIG_DATA.commands) state.commands[c.id] = false;
+        break;
     }
   }
 
@@ -343,6 +361,8 @@
         if (a[group][key] !== b[group][key]) return false;
       }
     }
+    // Also check _reset flag
+    if (!!a._reset !== !!b._reset) return false;
     return true;
   }
 

@@ -177,6 +177,24 @@ button {
   background: var(--accent-subtle);
 }
 
+.preset-btn-reset {
+  margin-left: 8px;
+  border-style: dashed;
+}
+
+.preset-btn-reset:hover {
+  border-color: var(--text-muted);
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.preset-btn-reset.active {
+  border-color: var(--text-muted);
+  color: var(--text-primary);
+  background: var(--bg-hover);
+  border-style: dashed;
+}
+
 .preset-icon {
   font-size: 0.9rem;
 }
