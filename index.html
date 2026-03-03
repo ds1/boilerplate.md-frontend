@@ -46,16 +46,18 @@
       <!-- CLAUDE.md Panel -->
       <section class="panel" id="panel-claudemd">
         <div class="panel-header" aria-expanded="true" aria-controls="panel-claudemd-body">
-          <div class="panel-title-group" data-accordion-toggle>
+          <div class="panel-header-left" data-accordion-toggle>
             <h2 class="panel-title">CLAUDE.md</h2>
+            <span class="panel-desc">Global instructions for Claude Code behavior</span>
+          </div>
+          <div class="panel-header-right">
             <span class="panel-count" id="claudemd-count">0/13</span>
+            <div class="panel-actions">
+              <button class="select-all-btn" data-group="claudeMd">Select all</button>
+              <button class="select-none-btn" data-group="claudeMd">Select none</button>
+            </div>
+            <svg class="panel-chevron" data-accordion-toggle width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 8 10 12 14 8"/></svg>
           </div>
-          <div class="panel-actions">
-            <button class="select-all-btn" data-group="claudeMd">Select all</button>
-            <button class="select-none-btn" data-group="claudeMd">Select none</button>
-          </div>
-          <span class="panel-desc" data-accordion-toggle>Global instructions for Claude Code behavior</span>
-          <svg class="panel-chevron" data-accordion-toggle width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 8 10 12 14 8"/></svg>
         </div>
         <div class="panel-body" id="panel-claudemd-body">
           <p class="panel-help">These sections are written to <code>~/.claude/CLAUDE.md</code> and loaded into every Claude Code conversation. They shape how Claude communicates, handles errors, manages files, and follows your preferences. Mix and match to build the behavior profile you want.</p>
@@ -66,16 +68,18 @@
       <!-- Settings Panel -->
       <section class="panel" id="panel-settings">
         <div class="panel-header" aria-expanded="true" aria-controls="panel-settings-body">
-          <div class="panel-title-group" data-accordion-toggle>
+          <div class="panel-header-left" data-accordion-toggle>
             <h2 class="panel-title">settings.json</h2>
+            <span class="panel-desc">Permissions, hooks, and mode settings</span>
+          </div>
+          <div class="panel-header-right">
             <span class="panel-count" id="settings-count">0/11</span>
+            <div class="panel-actions">
+              <button class="select-all-btn" data-group="settings">Select all</button>
+              <button class="select-none-btn" data-group="settings">Select none</button>
+            </div>
+            <svg class="panel-chevron" data-accordion-toggle width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 8 10 12 14 8"/></svg>
           </div>
-          <div class="panel-actions">
-            <button class="select-all-btn" data-group="settings">Select all</button>
-            <button class="select-none-btn" data-group="settings">Select none</button>
-          </div>
-          <span class="panel-desc" data-accordion-toggle>Permissions, hooks, and mode settings</span>
-          <svg class="panel-chevron" data-accordion-toggle width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 8 10 12 14 8"/></svg>
         </div>
         <div class="panel-body" id="panel-settings-body">
           <p class="panel-help">These configure <code>~/.claude/settings.json</code>, which controls tool permissions, safety rules, and hooks. Permissions determine which CLI commands Claude can run without asking. The deny list blocks dangerous operations regardless of other settings.</p>
@@ -86,16 +90,18 @@
       <!-- Commands Panel -->
       <section class="panel" id="panel-commands">
         <div class="panel-header" aria-expanded="true" aria-controls="panel-commands-body">
-          <div class="panel-title-group" data-accordion-toggle>
+          <div class="panel-header-left" data-accordion-toggle>
             <h2 class="panel-title">Slash Commands</h2>
+            <span class="panel-desc">Project management and Socratic analysis commands</span>
+          </div>
+          <div class="panel-header-right">
             <span class="panel-count" id="commands-count">0/20</span>
+            <div class="panel-actions">
+              <button class="select-all-btn" data-group="commands">Select all</button>
+              <button class="select-none-btn" data-group="commands">Select none</button>
+            </div>
+            <svg class="panel-chevron" data-accordion-toggle width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 8 10 12 14 8"/></svg>
           </div>
-          <div class="panel-actions">
-            <button class="select-all-btn" data-group="commands">Select all</button>
-            <button class="select-none-btn" data-group="commands">Select none</button>
-          </div>
-          <span class="panel-desc" data-accordion-toggle>Project management and Socratic analysis commands</span>
-          <svg class="panel-chevron" data-accordion-toggle width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 8 10 12 14 8"/></svg>
         </div>
         <div class="panel-body" id="panel-commands-body">
           <p class="panel-help">Slash commands are markdown files saved to <code>~/.claude/commands/</code>. Type <code>/command-name</code> in Claude Code to run them. They act as reusable prompts that automate common workflows.</p>
