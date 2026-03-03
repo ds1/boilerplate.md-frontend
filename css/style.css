@@ -221,10 +221,16 @@ button {
   background: var(--bg-secondary);
   gap: 16px;
   transition: background var(--transition);
+  cursor: pointer;
+  user-select: none;
 }
 
-[data-accordion-toggle] {
-  cursor: pointer;
+.panel-header:hover {
+  background: var(--bg-hover);
+}
+
+.panel-header:active {
+  background: var(--accent-subtle);
 }
 
 .panel-header-left {
@@ -263,21 +269,19 @@ button {
 }
 
 .panel-chevron {
-  transition: transform var(--transition), color var(--transition), background var(--transition);
+  transition: transform var(--transition), color var(--transition);
   flex-shrink: 0;
   color: var(--text-muted);
   padding: 4px;
   border-radius: var(--radius-sm);
 }
 
-.panel-chevron:hover {
+.panel-header:hover .panel-chevron {
   color: var(--text-primary);
-  background: var(--bg-hover);
 }
 
-.panel-chevron:active {
+.panel-header:active .panel-chevron {
   color: var(--accent);
-  background: var(--accent-subtle);
 }
 
 .panel-header[aria-expanded="false"] .panel-chevron {
