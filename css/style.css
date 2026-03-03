@@ -263,9 +263,21 @@ button {
 }
 
 .panel-chevron {
-  transition: transform var(--transition);
+  transition: transform var(--transition), color var(--transition), background var(--transition);
   flex-shrink: 0;
   color: var(--text-muted);
+  padding: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.panel-chevron:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.panel-chevron:active {
+  color: var(--accent);
+  background: var(--accent-subtle);
 }
 
 .panel-header[aria-expanded="false"] .panel-chevron {
