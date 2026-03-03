@@ -493,17 +493,24 @@
     document.getElementById("share-btn").addEventListener("click", () => {
       const hash = encodeStateToHash();
       const url = `${window.location.origin}${window.location.pathname}#${hash}`;
-      navigator.clipboard.writeText(url).then(() => {
-        const status = document.getElementById("share-status");
-        status.textContent = "URL copied!";
-        setTimeout(() => { status.textContent = ""; }, 2000);
-      }).catch(() => {
-        // Fallback: update URL bar
-        window.location.hash = hash;
-        const status = document.getElementById("share-status");
-        status.textContent = "URL updated in address bar";
+      const status = document.getElementById("share-status");
+
+      // Always update the URL bar so the link is visible
+      window.location.hash = hash;
+
+      // Try to copy to clipboard
+      try {
+        navigator.clipboard.writeText(url).then(() => {
+          status.textContent = "Link copied to clipboard!";
+          setTimeout(() => { status.textContent = ""; }, 2000);
+        }).catch(() => {
+          status.textContent = "Link is in the address bar — copy it from there";
+          setTimeout(() => { status.textContent = ""; }, 3000);
+        });
+      } catch {
+        status.textContent = "Link is in the address bar — copy it from there";
         setTimeout(() => { status.textContent = ""; }, 3000);
-      });
+      }
     });
   }
 
