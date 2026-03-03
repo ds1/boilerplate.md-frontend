@@ -112,6 +112,13 @@ button {
   line-height: 1.5;
 }
 
+.header-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
 .github-link {
   display: flex;
   align-items: center;
@@ -124,12 +131,29 @@ button {
   transition: all var(--transition);
   white-space: nowrap;
   flex-shrink: 0;
-  margin-top: 4px;
 }
 .github-link:hover {
   color: var(--text-primary);
   border-color: var(--text-muted);
   text-decoration: none;
+}
+
+.github-star:hover {
+  color: #e3b341;
+  border-color: #e3b341;
+}
+
+.github-star:hover svg {
+  fill: #e3b341;
+}
+
+.star-count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding-left: 4px;
+  border-left: 1px solid var(--border);
+  margin-left: 2px;
+  min-width: 1em;
 }
 
 /* ── Presets Bar ───────────────────────────────────────────────────── */
@@ -727,7 +751,7 @@ button {
     gap: 12px;
   }
 
-  .github-link {
+  .header-actions {
     align-self: flex-start;
     margin-top: 0;
   }

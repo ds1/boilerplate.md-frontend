@@ -479,6 +479,21 @@
     updateWarnings();
     detectActivePreset();
     bindEvents();
+    fetchStarCount();
+  }
+
+  // ── Star Count ──────────────────────────────────────────────────────
+
+  function fetchStarCount() {
+    fetch("https://api.github.com/repos/ds1/claude-code-config")
+      .then(r => r.json())
+      .then(data => {
+        if (data.stargazers_count != null) {
+          const el = document.getElementById("star-count");
+          el.textContent = data.stargazers_count;
+        }
+      })
+      .catch(() => {});
   }
 
   // Go
