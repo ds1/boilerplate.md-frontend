@@ -512,6 +512,34 @@ button {
   color: var(--warning);
 }
 
+/* Security warnings (red tint) */
+.warning-security {
+  background: rgba(220, 80, 60, 0.08);
+  border-color: rgba(220, 80, 60, 0.35);
+}
+
+.warning-security .warning-icon {
+  color: #dc503c;
+}
+
+.warning-security .warning-text strong {
+  color: #dc503c;
+}
+
+/* Caution warnings (orange tint) */
+.warning-caution {
+  background: rgba(215, 119, 87, 0.08);
+  border-color: rgba(215, 119, 87, 0.35);
+}
+
+.warning-caution .warning-icon {
+  color: var(--accent);
+}
+
+.warning-caution .warning-text strong {
+  color: var(--accent);
+}
+
 /* ── Output Panel ──────────────────────────────────────────────────── */
 .output-panel {
   margin-top: 24px;

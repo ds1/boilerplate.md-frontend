@@ -229,7 +229,7 @@ Slash commands: \`/docs\` to manually trigger documentation updates, \`/deploy\`
     {
       id: "permissions-core-tools",
       title: "Core Tool Permissions",
-      description: "Allow npm, npx, node, git, gh, curl, and basic filesystem commands.",
+      description: "Allow npm, npx, node, git, gh, curl, and basic filesystem commands. Uses wildcards (<code>curl:*</code>, <code>node:*</code>) that allow any arguments.",
       recommended: true,
       category: "permissions",
       content: [
@@ -283,7 +283,7 @@ Slash commands: \`/docs\` to manually trigger documentation updates, \`/deploy\`
     {
       id: "permissions-extended",
       title: "Extended Tool Permissions",
-      description: "Python, pip, cargo, rustup, openssl, tsx, and other dev tools.",
+      description: "Python, pip, cargo, rustup, openssl, tsx, and other dev tools. Uses broad wildcards (<code>python:*</code>, <code>openssl:*</code>) that allow any arguments.",
       recommended: false,
       category: "permissions",
       content: [
@@ -361,7 +361,7 @@ Slash commands: \`/docs\` to manually trigger documentation updates, \`/deploy\`
     {
       id: "permissions-deny",
       title: "Denied Commands (Safety)",
-      description: "Block rm -rf, force-push, hard reset, and drop table.",
+      description: "Block rm -rf, force-push, hard reset, and drop table. Only 4 patterns. Consider adding more for your stack.",
       recommended: true,
       category: "safety",
       content: [
@@ -374,7 +374,7 @@ Slash commands: \`/docs\` to manually trigger documentation updates, \`/deploy\`
     {
       id: "settings-bypass",
       title: "Bypass Permissions Mode",
-      description: "Auto-approve all tool calls. Pair with Safety Net section in CLAUDE.md.",
+      description: "Auto-approve all tool calls without prompting. <strong>Security note:</strong> Claude can execute any command immediately. Pair with Safety Net section in CLAUDE.md for guardrails.",
       recommended: false,
       category: "mode",
       dependsOn: ["safety-net"],
